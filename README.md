@@ -9,22 +9,22 @@ Este es el resultado del tercer sprint (17/03/2026 - 30/03/2026) del proyecto.
 ### Funcionalidades implementadas
 
 **Nuevas del Sprint 3:**
-- ✅ Página Contacto con formulario funcional
-- ✅ Validación de campos del formulario
-- ✅ Feedback visual en formulario (errores y éxito)
-- ✅ Página Admisiones completa
-- ✅ Proceso de admisión paso a paso
-- ✅ Información de becas y apoyos
-- ✅ Requisitos y documentación necesaria
-- ✅ Navegación completa entre todas las 7 páginas
-- ✅ Todos los enlaces habilitados
+- Página Contacto con formulario funcional
+- Validación de campos del formulario
+- Feedback visual en formulario (errores y éxito)
+- Página Admisiones completa
+- Proceso de admisión paso a paso
+- Información de becas y apoyos
+- Requisitos y documentación necesaria
+- Navegación completa entre todas las 7 páginas
+- Todos los enlaces habilitados
 
 **De sprints anteriores:**
-- ✅ Página Inicio con hero section
-- ✅ Página Sobre Nosotros con timeline
-- ✅ Página Programas con tabs interactivos
-- ✅ Página Calendario con filtros
-- ✅ Página Atletas con filtros por deporte
+- Página Inicio con hero section
+- Página Sobre Nosotros con timeline
+- Página Programas con tabs interactivos
+- Página Calendario con filtros
+- Página Atletas con filtros por deporte
 
 ---
 
