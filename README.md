@@ -1,23 +1,30 @@
-# CODE Jalisco - Sprint 2
+# CODE Jalisco - Sprint 3
 
 Sitio web institucional para el Centro de Desarrollo Deportivo de Jalisco.
 
-## Sprint 2: Páginas principales
+## Sprint 3: Funcionalidades interactivas
 
-Este es el resultado del segundo sprint (03/03/2026 - 16/03/2026) del proyecto.
+Este es el resultado del tercer sprint (17/03/2026 - 30/03/2026) del proyecto.
 
 ### Funcionalidades implementadas
 
-- ✅ Página Sobre Nosotros con historia, misión, visión y valores
-- ✅ Timeline de historia institucional
-- ✅ Sección de equipo directivo
-- ✅ Página Programas con sistema de tabs interactivos
-- ✅ Programas académicos y deportivos detallados
-- ✅ Página Calendario con eventos institucionales
-- ✅ Filtros de eventos por categoría
-- ✅ Página Atletas con perfiles destacados
-- ✅ Filtros de atletas por deporte
-- ✅ Navegación completa entre 5 páginas funcionales
+**Nuevas del Sprint 3:**
+- ✅ Página Contacto con formulario funcional
+- ✅ Validación de campos del formulario
+- ✅ Feedback visual en formulario (errores y éxito)
+- ✅ Página Admisiones completa
+- ✅ Proceso de admisión paso a paso
+- ✅ Información de becas y apoyos
+- ✅ Requisitos y documentación necesaria
+- ✅ Navegación completa entre todas las 7 páginas
+- ✅ Todos los enlaces habilitados
+
+**De sprints anteriores:**
+- ✅ Página Inicio con hero section
+- ✅ Página Sobre Nosotros con timeline
+- ✅ Página Programas con tabs interactivos
+- ✅ Página Calendario con filtros
+- ✅ Página Atletas con filtros por deporte
 
 ---
 
@@ -53,7 +60,7 @@ El servidor de desarrollo se ejecutará en `http://localhost:5173`
 ### Estructura del proyecto
 
 ```
-code-jalisco-sprint2/
+code-jalisco-sprint3/
 ├── src/
 │   ├── components/
 │   │   ├── Encabezado.jsx
@@ -61,10 +68,12 @@ code-jalisco-sprint2/
 │   │   └── Diseno.jsx
 │   ├── pages/
 │   │   ├── Inicio.jsx
-│   │   ├── SobreNosotros.jsx      (NUEVO)
-│   │   ├── Programas.jsx          (NUEVO)
-│   │   ├── Calendario.jsx         (NUEVO)
-│   │   └── Atletas.jsx            (NUEVO)
+│   │   ├── SobreNosotros.jsx
+│   │   ├── Programas.jsx
+│   │   ├── Calendario.jsx
+│   │   ├── Atletas.jsx
+│   │   ├── Admisiones.jsx         (NUEVO)
+│   │   └── Contacto.jsx           (NUEVO)
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -76,30 +85,36 @@ code-jalisco-sprint2/
 └── postcss.config.js
 ```
 
-### Características destacadas del Sprint 2
+### Características destacadas del Sprint 3
 
-**Sistema de tabs en Programas:**
-- Tabs interactivos para alternar entre programas académicos y deportivos
-- Diseño responsive con indicador visual de tab activo
+**Formulario de contacto funcional:**
+- Campos: Nombre, Email, Teléfono, Asunto, Mensaje
+- Validación en tiempo real de todos los campos
+- Mensajes de error específicos para cada campo
+- Feedback visual de éxito al enviar
+- Diseño responsive y accesible
 
-**Filtros en Calendario:**
-- Filtro por categoría: Todos, Académico, Deportivo, Social
-- Actualización dinámica de eventos mostrados
+**Página Admisiones completa:**
+- Proceso de admisión paso a paso
+- Requisitos detallados por nivel educativo
+- Información de becas y apoyos financieros
+- Calendario de admisiones
+- Documentación necesaria
+- Costos y formas de pago
 
-**Filtros en Atletas:**
-- Filtro por deporte: Todos, Fútbol, Básquetbol, Atletismo, Natación, Voleibol
-- Grid responsive de tarjetas de atletas
+**Navegación completa:**
+- Todas las 7 páginas del sitio funcionales
+- Enlaces habilitados en Header y Footer
+- Menú móvil completamente funcional
+- Experiencia de usuario fluida
 
-**Timeline en Sobre Nosotros:**
-- Línea de tiempo visual de la historia institucional
-- Diseño alternado para mejor legibilidad
+### Próximos pasos (Sprint 4)
 
-### Próximos pasos (Sprint 3)
-
-- Página Admisiones con proceso de inscripción
-- Página Contacto con formulario funcional
-- Validación de formularios
-- Animaciones y transiciones avanzadas
+- Optimización de imágenes y assets
+- Implementación de lazy loading
+- SEO (meta tags, sitemap)
+- Testing exhaustivo
+- Deployment a producción
 
 ---
 
@@ -108,6 +123,6 @@ code-jalisco-sprint2/
 - Sergio Iván Nápoles Chávez
 - José David Custodio Vega
 
-**Sprint:** 2 de 4
+**Sprint:** 3 de 4
 **Fecha:** Marzo 2026
 

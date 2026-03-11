@@ -37,8 +37,8 @@ const PieDePagina = () => {
               <li><Link to="/programas" className="hover:text-white transition-colors">Programas</Link></li>
               <li><Link to="/calendario" className="hover:text-white transition-colors">Calendario</Link></li>
               <li><Link to="/atletas" className="hover:text-white transition-colors">Atletas</Link></li>
-              <li><span className="cursor-not-allowed">Admisiones</span></li>
-              <li><span className="cursor-not-allowed">Contacto</span></li>
+              <li><Link to="/admisiones" className="hover:text-white transition-colors">Admisiones</Link></li>
+              <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
             </ul>
           </div>
 

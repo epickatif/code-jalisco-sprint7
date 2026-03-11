@@ -41,8 +41,12 @@ const Encabezado = () => {
             <Link to="/atletas" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Atletas
             </Link>
-            <span className="text-gray-400 cursor-not-allowed">Admisiones</span>
-            <span className="text-gray-400 cursor-not-allowed">Contacto</span>
+            <Link to="/admisiones" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Admisiones
+            </Link>
+            <Link to="/contacto" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Contacto
+            </Link>
           </nav>
 
           {/* Botón menú móvil */}
@@ -92,8 +96,20 @@ const Encabezado = () => {
             >
               Atletas
             </Link>
-            <span className="block text-gray-400 cursor-not-allowed">Admisiones</span>
-            <span className="block text-gray-400 cursor-not-allowed">Contacto</span>
+            <Link
+              to="/admisiones"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={() => setMenuAbierto(false)}
+            >
+              Admisiones
+            </Link>
+            <Link
+              to="/contacto"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={() => setMenuAbierto(false)}
+            >
+              Contacto
+            </Link>
           </nav>
         )}
       </div>
