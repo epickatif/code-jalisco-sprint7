@@ -1,30 +1,31 @@
-# CODE Jalisco - Sprint 3
+# CODE Jalisco - Sprint 4
 
 Sitio web institucional para el Centro de Desarrollo Deportivo de Jalisco.
 
-## Sprint 3: Funcionalidades interactivas
+## Sprint 4: Optimización y deployment
 
-Este es el resultado del tercer sprint (17/03/2026 - 30/03/2026) del proyecto.
+Este es el resultado del cuarto sprint (31/03/2026 - 13/04/2026) del proyecto.
 
 ### Funcionalidades implementadas
 
-**Nuevas del Sprint 3:**
-- Página Contacto con formulario funcional
-- Validación de campos del formulario
-- Feedback visual en formulario (errores y éxito)
-- Página Admisiones completa
-- Proceso de admisión paso a paso
-- Información de becas y apoyos
-- Requisitos y documentación necesaria
-- Navegación completa entre todas las 7 páginas
-- Todos los enlaces habilitados
+**Nuevas del Sprint 4:**
+- Meta tags SEO completos (Open Graph, Twitter Cards)
+- Sitemap.xml para motores de búsqueda
+- Robots.txt configurado
+- Lazy loading de rutas (code splitting)
+- Componente de carga optimizado
+- Componente de imagen optimizada con lazy loading
+- Idioma del sitio configurado a español
+- Optimización del bundle de JavaScript
+- Deployment en Vercel con configuración de rutas
+- Mejoras de accesibilidad
 
 **De sprints anteriores:**
-- Página Inicio con hero section
-- Página Sobre Nosotros con timeline
-- Página Programas con tabs interactivos
-- Página Calendario con filtros
-- Página Atletas con filtros por deporte
+- 7 páginas completamente funcionales
+- Formulario de contacto con validación
+- Sistema de navegación completo
+- Diseño responsive
+- Tabs y filtros interactivos
 
 ---
 
@@ -60,61 +61,68 @@ El servidor de desarrollo se ejecutará en `http://localhost:5173`
 ### Estructura del proyecto
 
 ```
-code-jalisco-sprint3/
+code-jalisco-sprint4/
 ├── src/
 │   ├── components/
 │   │   ├── Encabezado.jsx
 │   │   ├── PieDePagina.jsx
-│   │   └── Diseno.jsx
+│   │   ├── Diseno.jsx
+│   │   └── ImagenOptimizada.jsx    (NUEVO)
 │   ├── pages/
 │   │   ├── Inicio.jsx
 │   │   ├── SobreNosotros.jsx
 │   │   ├── Programas.jsx
 │   │   ├── Calendario.jsx
 │   │   ├── Atletas.jsx
-│   │   ├── Admisiones.jsx         (NUEVO)
-│   │   └── Contacto.jsx           (NUEVO)
-│   ├── App.jsx
+│   │   ├── Admisiones.jsx
+│   │   └── Contacto.jsx
+│   ├── App.jsx                     (Optimizado con lazy loading)
 │   ├── main.jsx
 │   └── index.css
 ├── public/
-├── index.html
+│   ├── sitemap.xml                 (NUEVO)
+│   └── robots.txt                  (NUEVO)
+├── index.html                      (Optimizado con meta tags SEO)
+├── vercel.json                     (NUEVO)
 ├── package.json
 ├── vite.config.js
 ├── tailwind.config.js
 └── postcss.config.js
 ```
 
-### Características destacadas del Sprint 3
+### Características destacadas del Sprint 4
 
-**Formulario de contacto funcional:**
-- Campos: Nombre, Email, Teléfono, Asunto, Mensaje
-- Validación en tiempo real de todos los campos
-- Mensajes de error específicos para cada campo
-- Feedback visual de éxito al enviar
-- Diseño responsive y accesible
+**Optimización SEO:**
+- Meta tags completos (título, descripción, keywords)
+- Open Graph tags para redes sociales
+- Twitter Cards configuradas
+- Sitemap.xml con todas las páginas
+- Robots.txt configurado
+- Idioma del sitio en español
+- URLs canónicas
 
-**Página Admisiones completa:**
-- Proceso de admisión paso a paso
-- Requisitos detallados por nivel educativo
-- Información de becas y apoyos financieros
-- Calendario de admisiones
-- Documentación necesaria
-- Costos y formas de pago
+**Optimización de rendimiento:**
+- Lazy loading de rutas con React.lazy()
+- Code splitting automático por página
+- Componente de carga con spinner
+- Componente de imagen optimizada
+- Bundle optimizado y dividido
 
-**Navegación completa:**
-- Todas las 7 páginas del sitio funcionales
-- Enlaces habilitados en Header y Footer
-- Menú móvil completamente funcional
-- Experiencia de usuario fluida
+**Deployment:**
+- Configuración de Vercel (vercel.json)
+- Manejo correcto de rutas de React Router
+- Sitio desplegado en producción
+- HTTPS automático
+- CDN global
 
-### Próximos pasos (Sprint 4)
+### Próximos pasos (Sprints 5-8)
 
-- Optimización de imágenes y assets
-- Implementación de lazy loading
-- SEO (meta tags, sitemap)
-- Testing exhaustivo
-- Deployment a producción
+- Sistema de blog/noticias institucionales
+- Galería multimedia (fotos y videos)
+- Sistema de testimonios de estudiantes
+- Integración con redes sociales
+- Panel de estadísticas en tiempo real
+- Sistema de inscripciones online
 
 ---
 
@@ -123,6 +131,8 @@ code-jalisco-sprint3/
 - Sergio Iván Nápoles Chávez
 - José David Custodio Vega
 
-**Sprint:** 3 de 4
-**Fecha:** Marzo 2026
+**Sprint:** 4 de 8
+**Fecha:** Abril 2026
+
+**URL de producción:** https://code-jalisco-sprint3.vercel.app
 
