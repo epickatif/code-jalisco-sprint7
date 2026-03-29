@@ -10,6 +10,8 @@ const Calendario = lazy(() => import('./pages/Calendario'));
 const Atletas = lazy(() => import('./pages/Atletas'));
 const Admisiones = lazy(() => import('./pages/Admisiones'));
 const Contacto = lazy(() => import('./pages/Contacto'));
+const Noticias = lazy(() => import('./pages/Noticias'));
+const DetalleNoticia = lazy(() => import('./pages/DetalleNoticia'));
 
 // Componente de carga
 const CargandoPagina = () => (
@@ -33,6 +35,8 @@ function App() {
             <Route path="calendario" element={<Calendario />} />
             <Route path="atletas" element={<Atletas />} />
             <Route path="admisiones" element={<Admisiones />} />
+            <Route path="noticias" element={<Noticias />} />
+            <Route path="noticias/:slug" element={<DetalleNoticia />} />
             <Route path="contacto" element={<Contacto />} />
           </Route>
         </Routes>

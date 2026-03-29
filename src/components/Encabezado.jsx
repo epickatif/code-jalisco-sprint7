@@ -41,6 +41,9 @@ const Encabezado = () => {
             <Link to="/atletas" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Atletas
             </Link>
+            <Link to="/noticias" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Noticias
+            </Link>
             <Link to="/admisiones" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Admisiones
             </Link>
@@ -95,6 +98,13 @@ const Encabezado = () => {
               onClick={toggleMenu}
             >
               Atletas
+            </Link>
+            <Link
+              to="/noticias"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Noticias
             </Link>
             <Link
               to="/admisiones"
