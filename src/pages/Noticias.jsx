@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import Diseno from '../components/Diseno';
 import NewsCard from '../components/NewsCard';
 import { noticias, categorias } from '../data/noticias';
 
@@ -53,7 +52,7 @@ function Noticias() {
   };
 
   return (
-    <Diseno>
+    <>
       <Helmet>
         <title>Noticias - CODE Jalisco</title>
         <meta name="description" content="Mantente informado sobre las últimas noticias, eventos y logros del Centro de Desarrollo Deportivo de Jalisco." />
@@ -191,7 +190,7 @@ function Noticias() {
           )}
         </div>
       </section>
-    </Diseno>
+    </>
   );
 }
 

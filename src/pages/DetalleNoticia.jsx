@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Diseno from '../components/Diseno';
 import ImagenOptimizada from '../components/ImagenOptimizada';
 import NewsCard from '../components/NewsCard';
 import { noticias, categorias } from '../data/noticias';
@@ -26,7 +25,7 @@ function DetalleNoticia() {
     .slice(0, 3);
 
   return (
-    <Diseno>
+    <>
       <Helmet>
         <title>{noticia.titulo} - CODE Jalisco</title>
         <meta name="description" content={noticia.resumen} />
@@ -138,7 +137,7 @@ function DetalleNoticia() {
           </div>
         </section>
       )}
-    </Diseno>
+    </>
   );
 }
 
