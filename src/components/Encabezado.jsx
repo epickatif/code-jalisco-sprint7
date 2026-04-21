@@ -44,6 +44,12 @@ const Encabezado = () => {
             <Link to="/noticias" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Noticias
             </Link>
+            <Link to="/galeria" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Galería
+            </Link>
+            <Link to="/testimonios" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Testimonios
+            </Link>
             <Link to="/admisiones" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Admisiones
             </Link>
@@ -105,6 +111,20 @@ const Encabezado = () => {
               onClick={toggleMenu}
             >
               Noticias
+            </Link>
+            <Link
+              to="/galeria"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Galería
+            </Link>
+            <Link
+              to="/testimonios"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Testimonios
             </Link>
             <Link
               to="/admisiones"
