@@ -56,12 +56,8 @@ El sitio web está 100% funcional y listo para despliegue en producción, cumpli
 
 | Tarea | Descripción | Responsable | Estado |
 |-------|-------------|-------------|---------|
-| Corrección de enlaces | Actualizar URLs de redes sociales a cuentas reales | Héctor Salazar | Completado |
-| Optimización de navegación | Reducir espaciado en header para evitar saturación | Héctor Salazar | Completado |
 | Calendario completo | Agregar 58 eventos del año 2026 completo | David Custodio | Completado |
 | Sistema de emails funcional | Configurar envío de confirmaciones a usuarios | Héctor Salazar | Completado |
-| Unificación de colores | Estandarizar tonos de azul en banners | Sergio Nápoles | Completado |
-| Mejora de dropdowns | Optimizar chevrons en selectores de noticias | David Custodio | Completado |
 
 ---
 
