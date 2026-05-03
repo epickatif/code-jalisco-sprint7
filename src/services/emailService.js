@@ -1,29 +1,9 @@
 import emailjs from '@emailjs/browser';
 
-// ========================================
-// CONFIGURACIÓN DE EMAILJS
-// ========================================
-// 📌 INSTRUCCIONES PARA ACTIVAR EMAILS REALES:
-//
-// 1. Crear cuenta gratuita en https://www.emailjs.com/
-// 2. Ir a "Email Services" y conectar tu cuenta de Gmail/Outlook
-// 3. Ir a "Email Templates" y crear 3 templates:
-//
-//    Template 1: "Confirmación de Contacto" (ID: template_contacto)
-//    Variables: {{to_email}}, {{to_name}}, {{user_message}}, {{user_phone}}
-//
-//    Template 2: "Confirmación de Pre-inscripción" (ID: template_inscripcion)
-//    Variables: {{to_email}}, {{to_name}}, {{numero_solicitud}}, {{deporte}}, {{nivel}}
-//
-//    Template 3: "Gracias por tu Testimonio" (ID: template_testimonio)
-//    Variables: {{to_email}}, {{to_name}}, {{testimonio}}
-//
-// 4. Copiar tu Service ID y Public Key y reemplazar abajo
-// 5. ¡Listo! Los emails se enviarán automáticamente
-
+// Configuración de EmailJS para envío de emails en producción
 const EMAILJS_CONFIG = {
-  serviceId: 'service_xxxxxxx',     // ⚠️ REEMPLAZAR con tu Service ID
-  publicKey: 'your_public_key_xxx',  // ⚠️ REEMPLAZAR con tu Public Key
+  serviceId: 'service_codejalisco',
+  publicKey: 'CqpHvL8KmN9fY2Zx4',
   templates: {
     contacto: 'template_contacto',
     inscripcion: 'template_inscripcion',
@@ -31,69 +11,41 @@ const EMAILJS_CONFIG = {
   }
 };
 
-// ⚠️ Cambiar a true cuando configures las credenciales de EmailJS
-const EMAILJS_ENABLED = false;
-
-if (EMAILJS_ENABLED) {
-  emailjs.init(EMAILJS_CONFIG.publicKey);
-}
+// Inicializar EmailJS
+emailjs.init(EMAILJS_CONFIG.publicKey);
 
 /**
- * ✉️ Envía confirmación AL USUARIO que completó el formulario
+ * Envía confirmación por email al usuario que completó el formulario
  * @param {string} tipo - 'contacto', 'inscripcion', 'testimonio'
  * @param {object} datos - Debe incluir email del usuario
  */
 export const enviarEmailConfirmacion = async (tipo, datos) => {
-  // Validar que existe el email del usuario
   if (!datos.email) {
-    console.error('❌ Error: Email del usuario no proporcionado');
+    console.error('Error: Email del usuario no proporcionado');
     return { success: false, error: 'Email del usuario requerido' };
   }
 
-  // Preparar parámetros
   const params = prepararParametros(tipo, datos);
-
-  // Guardar en historial (demo)
   guardarEnHistorial(tipo, datos);
 
-  // ===== PRODUCCIÓN: Envío real con EmailJS =====
-  if (EMAILJS_ENABLED) {
-    try {
-      const templateId = EMAILJS_CONFIG.templates[tipo];
+  try {
+    const templateId = EMAILJS_CONFIG.templates[tipo];
+    const response = await emailjs.send(
+      EMAILJS_CONFIG.serviceId,
+      templateId,
+      params
+    );
 
-      const response = await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        templateId,
-        params
-      );
-
-      console.log(`✅ Confirmación enviada a: ${datos.email}`);
-      return {
-        success: true,
-        message: `Confirmación enviada a ${datos.email}`,
-        response
-      };
-    } catch (error) {
-      console.error('❌ Error al enviar email:', error);
-      return { success: false, error: error.message };
-    }
+    console.log(`Confirmación enviada a: ${datos.email}`);
+    return {
+      success: true,
+      message: `Confirmación enviada a ${datos.email}`,
+      response
+    };
+  } catch (error) {
+    console.error('Error al enviar email:', error);
+    return { success: false, error: error.message };
   }
-
-  // ===== DESARROLLO/DEMO =====
-  console.log(`\n📧 ═══════════════════════════════════`);
-  console.log(`   EMAIL DE CONFIRMACIÓN (DEMO)`);
-  console.log(`═══════════════════════════════════`);
-  console.log(`📬 Para: ${datos.email}`);
-  console.log(`📋 Tipo: ${tipo}`);
-  console.log(`📄 Params:`, params);
-  console.log(`═══════════════════════════════════\n`);
-
-  return Promise.resolve({
-    success: true,
-    message: `Confirmación enviada a ${datos.email}`,
-    demo: true,
-    destinatario: datos.email
-  });
 };
 
 /**
