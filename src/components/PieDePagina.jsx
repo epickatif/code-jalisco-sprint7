@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaGlobe, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { redesSociales } from '../data/estadisticas';
 
@@ -41,6 +41,7 @@ const PieDePagina = () => {
               <li><Link to="/estadisticas" className="hover:text-white transition-colors">Estadísticas</Link></li>
               <li><Link to="/admisiones" className="hover:text-white transition-colors">Admisiones</Link></li>
               <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
+              <li><Link to="/emails-enviados" className="hover:text-white transition-colors text-yellow-400">📧 Emails Demo</Link></li>
             </ul>
           </div>
 
@@ -54,10 +55,10 @@ const PieDePagina = () => {
               {redesSociales.map((red) => {
                 const IconMap = {
                   FaFacebook,
-                  FaTwitter,
                   FaInstagram,
                   FaYoutube,
-                  FaTiktok
+                  FaTiktok,
+                  FaGlobe
                 };
                 const IconComponent = IconMap[red.icon];
                 return (

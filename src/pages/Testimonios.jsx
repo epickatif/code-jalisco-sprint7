@@ -66,15 +66,15 @@ function Testimonios() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Testimonios</h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-8">
             Descubre cómo CODE Jalisco ha transformado la vida de atletas, familias y nuestra comunidad
           </p>
           <button
             onClick={() => setMostrarFormulario(!mostrarFormulario)}
-            className="bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all shadow-lg inline-flex items-center"
+            className="bg-white text-primary-600 px-8 py-3 rounded-full font-bold hover:bg-gray-50 transition-all shadow-lg inline-flex items-center"
           >
             <FaPaperPlane className="mr-2" />
             Comparte tu testimonio
@@ -182,7 +182,7 @@ function Testimonios() {
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                    className="px-6 py-3 bg-primary-600 text-white rounded-lg font-bold hover:bg-primary-700 transition-colors"
                   >
                     Enviar testimonio
                   </button>
@@ -219,7 +219,7 @@ function Testimonios() {
                 onClick={() => setCategoriaSeleccionada(categoria.id)}
                 className={`px-6 py-2 rounded-full font-medium transition-all ${
                   categoriaSeleccionada === categoria.id
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-primary-600 text-white shadow-md'
                     : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
               >

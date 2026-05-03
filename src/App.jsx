@@ -15,6 +15,9 @@ const DetalleNoticia = lazy(() => import('./pages/DetalleNoticia'));
 const Galeria = lazy(() => import('./pages/Galeria'));
 const Testimonios = lazy(() => import('./pages/Testimonios'));
 const Estadisticas = lazy(() => import('./pages/Estadisticas'));
+const PreInscripcion = lazy(() => import('./pages/PreInscripcion'));
+const ConfirmacionInscripcion = lazy(() => import('./pages/ConfirmacionInscripcion'));
+const EmailsEnviados = lazy(() => import('./pages/EmailsEnviados'));
 
 // Componente de carga
 const CargandoPagina = () => (
@@ -43,6 +46,9 @@ function App() {
             <Route path="galeria" element={<Galeria />} />
             <Route path="testimonios" element={<Testimonios />} />
             <Route path="estadisticas" element={<Estadisticas />} />
+            <Route path="pre-inscripcion" element={<PreInscripcion />} />
+            <Route path="confirmacion-inscripcion" element={<ConfirmacionInscripcion />} />
+            <Route path="emails-enviados" element={<EmailsEnviados />} />
             <Route path="contacto" element={<Contacto />} />
           </Route>
         </Routes>

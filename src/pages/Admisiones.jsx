@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { 
-  FaClipboardList, 
-  FaFileAlt, 
-  FaUserCheck, 
+import { Link } from 'react-router-dom';
+import {
+  FaClipboardList,
+  FaFileAlt,
+  FaUserCheck,
   FaTrophy,
   FaCheckCircle,
   FaCalendarAlt,
   FaDollarSign,
-  FaQuestionCircle
+  FaQuestionCircle,
+  FaArrowRight
 } from 'react-icons/fa';
 
 const Admisiones = () => {
@@ -139,9 +141,13 @@ const Admisiones = () => {
             <p className="text-xl md:text-2xl text-gray-100 mb-8">
               Únete a la familia CODE Jalisco y comienza tu camino hacia el éxito
             </p>
-            <a href="#formulario" className="bg-accent-500 hover:bg-accent-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-block">
-              Iniciar solicitud
-            </a>
+            <Link
+              to="/pre-inscripcion"
+              className="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-gray-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Iniciar Pre-inscripción
+              <FaArrowRight />
+            </Link>
           </div>
         </div>
       </section>

@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { 
-  FaMapMarkerAlt, 
-  FaPhone, 
-  FaEnvelope, 
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
   FaClock,
   FaPaperPlane,
-  FaCheckCircle
+  FaCheckCircle,
+  FaSpinner
 } from 'react-icons/fa';
+import { enviarEmailSimulado } from '../services/emailService';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +22,7 @@ const Contacto = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,15 +71,46 @@ const Contacto = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const newErrors = validateForm();
-    
+
     if (Object.keys(newErrors).length === 0) {
-      // Formulario válido, simular envío
-      console.log('Formulario enviado:', formData);
-      setIsSubmitted(true);
+      setIsLoading(true);
+
+      try {
+        // Enviar correo electrónico real
+        const resultado = await enviarEmailSimulado('contacto', {
+          nombre: formData.name,
+          email: formData.email,
+          telefono: formData.phone,
+          asunto: formData.subject,
+          mensaje: formData.message,
+          interes: formData.interest
+        });
+
+        console.log('✅ Confirmación enviada al usuario:', resultado);
+        setIsSubmitted(true);
+
+        // Resetear formulario después de 3 segundos
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: '',
+            message: '',
+            interest: 'informacion'
+          });
+          setIsSubmitted(false);
+        }, 5000);
+      } catch (error) {
+        console.error('Error al enviar formulario:', error);
+        alert('Hubo un error al enviar el mensaje. Por favor intenta nuevamente.');
+      } finally {
+        setIsLoading(false);
+      }
 
       // Reiniciar formulario después de 3 segundos
       setTimeout(() => {
@@ -177,8 +211,11 @@ const Contacto = () => {
                   <h3 className="text-2xl font-bold text-green-700 mb-2">
                     ¡Mensaje enviado!
                   </h3>
-                  <p className="text-green-600">
-                    Gracias por contactarnos. Te responderemos pronto.
+                  <p className="text-green-600 mb-2">
+                    Hemos enviado una confirmación a tu correo electrónico.
+                  </p>
+                  <p className="text-sm text-green-600">
+                    Nuestro equipo se pondrá en contacto contigo pronto.
                   </p>
                 </div>
               ) : (
@@ -301,10 +338,22 @@ const Contacto = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="btn-primary w-full flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className={`btn-primary w-full flex items-center justify-center gap-2 ${
+                      isLoading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   >
-                    <FaPaperPlane />
-                    Enviar mensaje
+                    {isLoading ? (
+                      <>
+                        <FaSpinner className="animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <FaPaperPlane />
+                        Enviar mensaje
+                      </>
+                    )}
                   </button>
                 </form>
               )}

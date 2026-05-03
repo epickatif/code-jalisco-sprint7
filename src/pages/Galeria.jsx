@@ -56,10 +56,10 @@ function Galeria() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Galería Multimedia</h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-100 max-w-2xl mx-auto">
             Descubre momentos inolvidables de nuestra comunidad deportiva
           </p>
         </div>
@@ -73,7 +73,7 @@ function Galeria() {
               onClick={() => setVistaActual('fotos')}
               className={`flex items-center px-6 py-3 rounded-lg font-semibold transition-all ${
                 vistaActual === 'fotos'
-                  ? 'bg-blue-600 text-white shadow-lg'
+                  ? 'bg-primary-600 text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
               }`}
             >
@@ -84,7 +84,7 @@ function Galeria() {
               onClick={() => setVistaActual('videos')}
               className={`flex items-center px-6 py-3 rounded-lg font-semibold transition-all ${
                 vistaActual === 'videos'
-                  ? 'bg-blue-600 text-white shadow-lg'
+                  ? 'bg-primary-600 text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
               }`}
             >
@@ -108,7 +108,7 @@ function Galeria() {
                     onClick={() => setAlbumSeleccionado(album.id)}
                     className={`px-4 py-2 rounded-full font-medium transition-all ${
                       albumSeleccionado === album.id
-                        ? 'bg-blue-600 text-white shadow-md'
+                        ? 'bg-primary-600 text-white shadow-md'
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                     }`}
                   >

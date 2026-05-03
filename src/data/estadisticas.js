@@ -148,36 +148,36 @@ export const redesSociales = [
   {
     nombre: 'Facebook',
     icon: 'FaFacebook',
-    url: 'https://facebook.com/codejalisco',
+    url: 'https://www.facebook.com/code.jalisco',
     color: '#1877F2',
     seguidores: '15.2K'
   },
   {
     nombre: 'Instagram',
     icon: 'FaInstagram',
-    url: 'https://instagram.com/codejalisco',
+    url: 'https://www.instagram.com/codejal/',
     color: '#E4405F',
     seguidores: '12.8K'
   },
   {
-    nombre: 'Twitter',
-    icon: 'FaTwitter',
-    url: 'https://twitter.com/codejalisco',
-    color: '#1DA1F2',
-    seguidores: '8.5K'
+    nombre: 'TikTok',
+    icon: 'FaTiktok',
+    url: 'https://www.tiktok.com/@codejal',
+    color: '#000000',
+    seguidores: '18.9K'
   },
   {
     nombre: 'YouTube',
     icon: 'FaYoutube',
-    url: 'https://youtube.com/@codejalisco',
+    url: 'https://www.youtube.com/channel/UCvG1g1FaxTrCTdBHHa0sz_g',
     color: '#FF0000',
     seguidores: '5.3K'
   },
   {
-    nombre: 'TikTok',
-    icon: 'FaTiktok',
-    url: 'https://tiktok.com/@codejalisco',
-    color: '#000000',
-    seguidores: '18.9K'
+    nombre: 'Sitio Web',
+    icon: 'FaGlobe',
+    url: 'https://www.codejalisco.gob.mx/',
+    color: '#6B7280',
+    seguidores: 'Oficial'
   }
 ];

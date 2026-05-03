@@ -59,10 +59,10 @@ function Noticias() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-br from-primary-700 to-primary-900 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Noticias CODE Jalisco</h1>
-          <p className="text-xl text-blue-100">Mantente al día con las últimas noticias deportivas</p>
+          <p className="text-xl text-gray-100">Mantente al día con las últimas noticias deportivas</p>
         </div>
       </section>
 
@@ -87,29 +87,39 @@ function Noticias() {
             </div>
 
             {/* Filtro por categoría */}
-            <div>
+            <div className="relative">
               <select
                 value={categoriaSeleccionada}
                 onChange={(e) => handleFiltroChange(setCategoriaSeleccionada)(e.target.value)}
-                className="w-full md:w-auto px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full md:w-auto appearance-none px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white cursor-pointer"
               >
                 <option value="todas">Todas las categorías</option>
                 {categorias.map(cat => (
                   <option key={cat.id} value={cat.id}>{cat.nombre}</option>
                 ))}
               </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
 
             {/* Ordenamiento */}
-            <div>
+            <div className="relative">
               <select
                 value={ordenamiento}
                 onChange={(e) => handleFiltroChange(setOrdenamiento)(e.target.value)}
-                className="w-full md:w-auto px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full md:w-auto appearance-none px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white cursor-pointer"
               >
                 <option value="reciente">Más reciente</option>
                 <option value="antiguo">Más antiguo</option>
               </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -145,7 +155,7 @@ function Noticias() {
                     className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
                       paginaActual === 1
                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                        : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+                        : 'bg-white text-primary-600 border border-primary-600 hover:bg-primary-50'
                     }`}
                   >
                     Anterior
@@ -159,7 +169,7 @@ function Noticias() {
                         onClick={() => setPaginaActual(numero)}
                         className={`w-10 h-10 rounded-lg font-semibold transition-colors ${
                           paginaActual === numero
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-primary-600 text-white'
                             : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
                         }`}
                       >
@@ -175,7 +185,7 @@ function Noticias() {
                     className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
                       paginaActual === totalPaginas
                         ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                        : 'bg-white text-blue-600 border border-blue-600 hover:bg-blue-50'
+                        : 'bg-white text-primary-600 border border-primary-600 hover:bg-primary-50'
                     }`}
                   >
                     Siguiente
