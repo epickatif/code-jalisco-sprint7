@@ -50,6 +50,9 @@ const Encabezado = () => {
             <Link to="/testimonios" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Testimonios
             </Link>
+            <Link to="/estadisticas" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Estadísticas
+            </Link>
             <Link to="/admisiones" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Admisiones
             </Link>
@@ -125,6 +128,13 @@ const Encabezado = () => {
               onClick={toggleMenu}
             >
               Testimonios
+            </Link>
+            <Link
+              to="/estadisticas"
+              className="block text-gray-700 hover:text-primary-600 font-medium transition-colors"
+              onClick={toggleMenu}
+            >
+              Estadísticas
             </Link>
             <Link
               to="/admisiones"

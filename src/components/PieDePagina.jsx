@@ -1,5 +1,6 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaTiktok, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { redesSociales } from '../data/estadisticas';
 
 const PieDePagina = () => {
   return (
@@ -37,6 +38,7 @@ const PieDePagina = () => {
               <li><Link to="/programas" className="hover:text-white transition-colors">Programas</Link></li>
               <li><Link to="/calendario" className="hover:text-white transition-colors">Calendario</Link></li>
               <li><Link to="/atletas" className="hover:text-white transition-colors">Atletas</Link></li>
+              <li><Link to="/estadisticas" className="hover:text-white transition-colors">Estadísticas</Link></li>
               <li><Link to="/admisiones" className="hover:text-white transition-colors">Admisiones</Link></li>
               <li><Link to="/contacto" className="hover:text-white transition-colors">Contacto</Link></li>
             </ul>
@@ -45,19 +47,33 @@ const PieDePagina = () => {
           {/* Redes sociales */}
           <div>
             <h3 className="font-display font-bold text-xl mb-4">Síguenos</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white text-2xl transition-colors">
-                <FaFacebook />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-2xl transition-colors">
-                <FaTwitter />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-2xl transition-colors">
-                <FaInstagram />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-2xl transition-colors">
-                <FaYoutube />
-              </a>
+            <p className="text-gray-400 mb-4 text-sm">
+              Mantente conectado con nosotros en redes sociales
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {redesSociales.map((red) => {
+                const IconMap = {
+                  FaFacebook,
+                  FaTwitter,
+                  FaInstagram,
+                  FaYoutube,
+                  FaTiktok
+                };
+                const IconComponent = IconMap[red.icon];
+                return (
+                  <a
+                    key={red.nombre}
+                    href={red.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-lg transition-all"
+                    aria-label={red.nombre}
+                  >
+                    <IconComponent className="text-xl" style={{ color: red.color }} />
+                    <span className="text-sm text-gray-400 group-hover:text-white">{red.seguidores}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

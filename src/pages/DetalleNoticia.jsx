@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ImagenOptimizada from '../components/ImagenOptimizada';
 import NewsCard from '../components/NewsCard';
+import ShareButtons from '../components/ShareButtons';
 import { noticias, categorias } from '../data/noticias';
 
 function DetalleNoticia() {
@@ -103,10 +104,19 @@ function DetalleNoticia() {
             </div>
 
             {/* Contenido */}
-            <div 
-              className="prose prose-lg max-w-none mb-12"
+            <div
+              className="prose prose-lg max-w-none mb-8"
               dangerouslySetInnerHTML={{ __html: noticia.contenido }}
             />
+
+            {/* Botones de compartir */}
+            <div className="border-t border-gray-200 pt-8 mb-12">
+              <ShareButtons
+                url={window.location.href}
+                title={noticia.titulo}
+                description={noticia.resumen}
+              />
+            </div>
 
             {/* Botón volver */}
             <div className="pt-8 border-t">
