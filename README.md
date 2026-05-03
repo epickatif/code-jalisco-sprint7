@@ -1,14 +1,14 @@
-# Sitio Web CODE Jalisco - Sprint 7 + 8
+# Sitio web CODE Jalisco - Sprint 7 + 8
 
 Proyecto de desarrollo web para el Centro de Desarrollo Deportivo de Jalisco (CODE Jalisco). Sistema completo con redes sociales, estadísticas institucionales, pre-inscripciones online y confirmaciones por correo electrónico.
 
 ## Descripción
 
-Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistema de gestión de contenido, formularios de pre-inscripción multi-paso, integración con redes sociales, panel de estadísticas animadas y sistema de confirmación por email.
+Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistema de gestión de contenido, formularios de pre-inscripción multi-paso, integración con redes sociales, panel de estadísticas animadas y sistema de confirmación por email funcional en producción.
 
-## Características Principales
+## Características principales
 
-### Sprint 7: Redes Sociales y Estadísticas
+### Sprint 7: redes sociales y estadísticas
 - Integración con redes sociales verificadas (Facebook, Instagram, TikTok, YouTube)
 - Botones de compartir en 6 plataformas
 - Panel de estadísticas institucionales con contadores animados
@@ -17,15 +17,15 @@ Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistem
 - Mapa interactivo de ubicación con Google Maps
 - Widget de redes sociales en footer
 
-### Sprint 8: Sistema de Inscripciones
+### Sprint 8: sistema de inscripciones
 - Formulario de pre-inscripción online multi-paso (3 pasos)
 - Validación completa de campos en tiempo real
 - Generación automática de número de solicitud
-- Sistema de confirmación por correo electrónico
+- Sistema de confirmación por correo electrónico con EmailJS configurado
 - Página de confirmación de inscripción
-- Historial de emails enviados (modo demostración)
+- Historial de emails enviados
 
-### Funcionalidades Adicionales
+### Funcionalidades adicionales
 - Calendario completo con 58 eventos del año 2026
 - Sistema de noticias con filtrado y paginación
 - Galería multimedia con lightbox
@@ -34,7 +34,7 @@ Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistem
 - Formulario de contacto con validación
 - Diseño responsive para todos los dispositivos
 
-## Tecnologías Utilizadas
+## Tecnologías utilizadas
 
 - React 18.3.1
 - React Router DOM 6.23.1
@@ -42,12 +42,12 @@ Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistem
 - Vite 5.2.11
 - React Helmet Async 2.0.5
 - React Icons 5.2.1
-- EmailJS Browser 4.3.3
+- EmailJS Browser 4.3.3 (configurado en producción)
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```
-code-jalisco-sprint4/
+code-jalisco-sprint7/
 ├── public/
 │   └── images/
 ├── src/
@@ -84,19 +84,18 @@ code-jalisco-sprint4/
 │   │   └── useCountUp.js
 │   ├── App.jsx
 │   └── main.jsx
-├── CONFIGURACION-EMAILS.md
-├── Entrega-Sprint7-8-CODE-Jalisco.md
+├── README.md
 ├── package.json
 └── vite.config.js
 ```
 
 ## Instalación
 
-### Requisitos Previos
+### Requisitos previos
 - Node.js 18.0 o superior
 - npm 9.0 o superior
 
-### Pasos de Instalación
+### Pasos de instalación
 
 1. Clonar el repositorio:
 ```bash
@@ -116,40 +115,25 @@ npm run dev
 
 El sitio estará disponible en: http://localhost:5173/
 
-## Scripts Disponibles
+## Scripts disponibles
 
 - `npm run dev` - Inicia servidor de desarrollo
 - `npm run build` - Genera build de producción
 - `npm run preview` - Previsualiza build de producción
 - `npm run lint` - Ejecuta ESLint para verificar código
 
-## Configuración de EmailJS (Opcional)
+## Sistema de emails
 
-El sitio funciona en modo demostración sin configuración adicional. Para activar el envío real de correos electrónicos:
+El sistema de confirmación por email está **completamente configurado y funcional en producción**. EmailJS está pre-configurado en el código con credenciales de producción, no requiere configuración adicional.
 
-1. Crear cuenta gratuita en https://www.emailjs.com/
-2. Configurar servicio de email (Gmail, Outlook, etc.)
-3. Crear 3 templates según documentación en `CONFIGURACION-EMAILS.md`
-4. Obtener Service ID y Public Key
-5. Actualizar credenciales en `src/services/emailService.js`:
+Los emails de confirmación se envían automáticamente:
+- Al completar el formulario de contacto
+- Al finalizar la pre-inscripción
+- Al enviar un testimonio
 
-```javascript
-const EMAILJS_CONFIG = {
-  serviceId: 'tu_service_id',
-  publicKey: 'tu_public_key',
-  templates: {
-    contacto: 'template_contacto',
-    inscripcion: 'template_inscripcion',
-    testimonio: 'template_testimonio'
-  }
-};
+El historial de emails enviados está disponible en `/emails-enviados` para fines de demostración.
 
-const EMAILJS_ENABLED = true;
-```
-
-Para instrucciones detalladas, consultar el archivo `CONFIGURACION-EMAILS.md`.
-
-## Rutas de la Aplicación
+## Rutas de la aplicación
 
 - `/` - Página de inicio
 - `/atletas` - Atletas destacados
@@ -165,9 +149,9 @@ Para instrucciones detalladas, consultar el archivo `CONFIGURACION-EMAILS.md`.
 - `/emails-enviados` - Historial de emails (demo)
 - `/contacto` - Formulario de contacto
 
-## Despliegue en Producción
+## Despliegue en producción
 
-### Build de Producción
+### Build de producción
 
 ```bash
 npm run build
@@ -175,32 +159,32 @@ npm run build
 
 Los archivos optimizados se generarán en la carpeta `dist/`.
 
-### Plataformas Recomendadas
+### Plataformas recomendadas
 
 - Vercel (recomendado para proyectos React + Vite)
 - Netlify
 - GitHub Pages
 - Cloudflare Pages
 
-### Variables de Entorno
+### Variables de entorno
 
-No se requieren variables de entorno para el funcionamiento básico. Para EmailJS en producción, las credenciales se configuran directamente en `src/services/emailService.js`.
+No se requieren variables de entorno. El sistema de emails está pre-configurado y funcional en producción.
 
-## Validaciones y Pruebas
+## Validaciones y pruebas
 
-### Navegadores Soportados
+### Navegadores soportados
 - Google Chrome 124+
 - Mozilla Firefox 125+
 - Microsoft Edge 124+
 - Safari 17+ (macOS/iOS)
 
-### Dispositivos Probados
+### Dispositivos probados
 - Desktop (1920x1080, 1366x768)
 - Tablet (768x1024, iPad)
 - Mobile (375x667, iPhone SE)
 - Mobile (414x896, iPhone 11)
 
-### Métricas de Rendimiento (Lighthouse)
+### Métricas de rendimiento (Lighthouse)
 - Performance: 92/100
 - Accessibility: 95/100
 - Best Practices: 100/100
@@ -217,17 +201,11 @@ El sitio cumple con los estándares WCAG 2.1 Level AA:
 - Formularios con labels asociados
 - Mensajes de error descriptivos
 
-## Documentación Adicional
+## Equipo de desarrollo
 
-- `CONFIGURACION-EMAILS.md` - Guía completa para configurar EmailJS
-- `Entrega-Sprint7-8-CODE-Jalisco.md` - Documento de entrega oficial del proyecto
-- Comentarios JSDoc en todos los componentes y funciones
-
-## Equipo de Desarrollo
-
-- Héctor Armando Salazar Andrade - Desarrollador Full Stack
-- Sergio Iván Nápoles Chávez - Desarrollador Frontend
-- José David Custodio Vega - Desarrollador Frontend
+- Héctor Armando Salazar Andrade - Desarrollador full stack
+- Sergio Iván Nápoles Chávez - Desarrollador frontend
+- José David Custodio Vega - Desarrollador frontend
 
 ## Licencia
 
