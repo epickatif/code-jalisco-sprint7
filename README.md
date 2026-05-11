@@ -17,10 +17,12 @@ Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistem
 - Mapa interactivo de ubicación con Google Maps
 - Widget de redes sociales en footer
 
-### Sprint 8: sistema de inscripciones
+### Sprint 8: sistema de inscripciones y base de datos
 - Formulario de pre-inscripción online multi-paso (3 pasos)
 - Validación completa de campos en tiempo real
 - Generación automática de número de solicitud
+- **Base de datos Firebase Firestore para almacenamiento en tiempo real**
+- **Página de visualización de inscripciones registradas en BD**
 - Sistema de confirmación por correo electrónico con EmailJS configurado
 - Página de confirmación de inscripción
 - Historial de emails enviados
@@ -43,6 +45,7 @@ Sitio web institucional desarrollado con React y Tailwind CSS que incluye sistem
 - React Helmet Async 2.0.5
 - React Icons 5.2.1
 - EmailJS Browser 4.3.3 (configurado en producción)
+- Firebase 10.12.0 (Firestore para base de datos en tiempo real)
 
 ## Estructura del proyecto
 
@@ -72,6 +75,7 @@ code-jalisco-sprint7/
 │   │   ├── PreInscripcion.jsx
 │   │   ├── ConfirmacionInscripcion.jsx
 │   │   ├── EmailsEnviados.jsx
+│   │   ├── InscripcionesRegistradas.jsx
 │   │   └── Contacto.jsx
 │   ├── data/
 │   │   ├── noticias.js
@@ -79,7 +83,8 @@ code-jalisco-sprint7/
 │   │   ├── testimonios.js
 │   │   └── estadisticas.js
 │   ├── services/
-│   │   └── emailService.js
+│   │   ├── emailService.js
+│   │   └── firebaseService.js
 │   ├── hooks/
 │   │   └── useCountUp.js
 │   ├── App.jsx
@@ -122,14 +127,34 @@ El sitio estará disponible en: http://localhost:5173/
 - `npm run preview` - Previsualiza build de producción
 - `npm run lint` - Ejecuta ESLint para verificar código
 
+## Base de datos en tiempo real
+
+El sistema utiliza **Firebase Firestore** como base de datos NoSQL en tiempo real para almacenar las pre-inscripciones de forma persistente.
+
+### Características de la base de datos:
+- Almacenamiento automático de cada pre-inscripción
+- Sincronización en tiempo real con la nube
+- Colección `preinscripciones` con todos los datos del formulario
+- Página de visualización en `/inscripciones-bd`
+- Sin necesidad de backend propio
+
+### Datos almacenados:
+Cada registro incluye:
+- Datos personales (nombre, CURP, email, teléfono)
+- Datos académicos (nivel educativo, institución, promedio)
+- Datos deportivos (deporte principal, experiencia, logros)
+- Metadatos (número de solicitud, fecha de registro, estado)
+
 ## Sistema de emails
 
 El sistema de confirmación por email está **completamente configurado y funcional en producción**. EmailJS está pre-configurado en el código con credenciales de producción, no requiere configuración adicional.
 
 Los emails de confirmación se envían automáticamente:
 - Al completar el formulario de contacto
-- Al finalizar la pre-inscripción
+- Al finalizar la pre-inscripción (con diseño HTML profesional)
 - Al enviar un testimonio
+
+**Template de email:** Diseño responsive con colores institucionales, incluye número de solicitud y detalles de la pre-inscripción.
 
 El historial de emails enviados está disponible en `/emails-enviados` para fines de demostración.
 
@@ -146,6 +171,7 @@ El historial de emails enviados está disponible en `/emails-enviados` para fine
 - `/admisiones` - Proceso de admisión
 - `/pre-inscripcion` - Formulario de pre-inscripción
 - `/confirmacion-inscripcion` - Confirmación de solicitud
+- `/inscripciones-bd` - **Visualización de registros en base de datos** (nuevo)
 - `/emails-enviados` - Historial de emails (demo)
 - `/contacto` - Formulario de contacto
 

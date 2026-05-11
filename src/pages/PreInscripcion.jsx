@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaUser, FaGraduationCap, FaRunning, FaCheckCircle, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
-import { enviarEmailSimulado } from '../services/emailService';
+import { enviarEmailConfirmacion } from '../services/emailService';
+import { guardarPreInscripcion } from '../services/firebaseService';
 
 function PreInscripcion() {
   const navigate = useNavigate();
   const [paso, setPaso] = useState(1);
   const [errores, setErrores] = useState({});
+  const [enviando, setEnviando] = useState(false);
   const [formData, setFormData] = useState({
     // Datos personales
     nombre: '',
@@ -113,27 +115,64 @@ function PreInscripcion() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validarPaso(3)) {
+
+    if (!validarPaso(3)) {
+      console.log('❌ Validación del paso 3 falló');
+      return;
+    }
+
+    console.log('🚀 Iniciando proceso de envío...');
+    setEnviando(true);
+
+    try {
       // Generar número de solicitud
       const numeroSolicitud = `INS-${new Date().getFullYear()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+      console.log('📝 Número de solicitud generado:', numeroSolicitud);
 
       // Guardar datos en localStorage para la página de confirmación
       const datosCompletos = { ...formData, numeroSolicitud };
       localStorage.setItem('solicitudInscripcion', JSON.stringify(datosCompletos));
+      console.log('💾 Datos guardados en localStorage');
 
-      // Enviar notificación por correo
+      // Guardar en Firebase (base de datos en tiempo real)
+      console.log('🔥 Intentando guardar en Firebase...');
       try {
-        await enviarEmailSimulado('pre-inscripcion', {
-          ...formData,
-          numeroSolicitud,
-          destinatario: 'armando.salazar.andrade@gmail.com'
-        });
-        console.log('📧 Notificación de pre-inscripción enviada');
+        const resultadoDB = await guardarPreInscripcion(datosCompletos);
+        if (resultadoDB.success) {
+          console.log('✅ Pre-inscripción guardada en base de datos Firebase');
+        } else {
+          console.warn('⚠️ No se pudo guardar en BD:', resultadoDB.error);
+          console.warn('El proceso continúa sin bloquear...');
+        }
       } catch (error) {
-        console.error('Error al enviar notificación:', error);
+        console.error('❌ Error al guardar en base de datos:', error);
+        console.log('El proceso continúa sin bloquear...');
       }
 
+      // Enviar email de confirmación al usuario
+      console.log('📧 Enviando email de confirmación a:', formData.email);
+      try {
+        const resultadoEmail = await enviarEmailConfirmacion('inscripcion', {
+          ...formData,
+          numeroSolicitud
+        });
+
+        if (resultadoEmail.success) {
+          console.log('✅ Email de confirmación enviado exitosamente');
+        } else {
+          console.warn('⚠️ No se pudo enviar el email:', resultadoEmail.error);
+        }
+      } catch (error) {
+        console.error('❌ Error al enviar email:', error);
+      }
+
+      console.log('✅ Proceso completado, redirigiendo...');
       navigate('/confirmacion-inscripcion');
+    } catch (error) {
+      console.error('❌ Error general en handleSubmit:', error);
+      alert('Ocurrió un error al procesar la solicitud. Por favor verifica la consola.');
+    } finally {
+      setEnviando(false);
     }
   };
 
@@ -710,10 +749,24 @@ function PreInscripcion() {
               ) : (
                 <button
                   type="submit"
-                  className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors ml-auto"
+                  disabled={enviando}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-colors ml-auto ${
+                    enviando
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-green-600 hover:bg-green-700'
+                  } text-white`}
                 >
-                  <FaCheckCircle />
-                  Enviar Solicitud
+                  {enviando ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      Procesando...
+                    </>
+                  ) : (
+                    <>
+                      <FaCheckCircle />
+                      Enviar Solicitud
+                    </>
+                  )}
                 </button>
               )}
             </div>

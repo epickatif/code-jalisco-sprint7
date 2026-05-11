@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 // Configuración de EmailJS para envío de emails en producción
 const EMAILJS_CONFIG = {
   serviceId: 'service_codejalisco',
-  publicKey: 'CqpHvL8KmN9fY2Zx4',
+  publicKey: 'kq04vExeL6ycLapyA',
   templates: {
     contacto: 'template_contacto',
     inscripcion: 'template_inscripcion',
